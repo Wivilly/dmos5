@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ConversorTemperatura</string>
-    <string name="converter_para_celsius">CONVERTER PARA CELSIUS</string>
+    <string name="converter_para_celsius">Celsius</string>
+    <string name="converter_para_fahrenheit">Fahrenheit</string>
 </resources>
