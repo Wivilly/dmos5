@@ -14,15 +14,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private EditText editText;
     private TextView textView;
+    private Button buttonCelsius;
 
-    private Button converterCToF;
-    private Button converterCToK;
-    private Button converterFToC;
-    private Button converterFToK;
-    private Button converterKToC;
-    private Button converterKToF;
-
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,47 +23,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         editText = findViewById(R.id.editText_value);
 
-        textView = findViewById(R.id.textView_value);
+        textView = findViewById(R.id.textView_Celsius);
 
-        converterCToF = findViewById(R.id.buttonConverterCelsiusToFahreheit);
-        converterCToF.setOnClickListener(this);
-
-        converterCToK = findViewById(R.id.buttonConverterCelsiusToKelvin);
-        converterCToK.setOnClickListener(this);
-
-        converterFToC = findViewById(R.id.buttonConverterFahreheitToCelsius);
-        converterFToC.setOnClickListener(this);
-
-        converterFToK = findViewById(R.id.buttonConverterFahreheitToKelvin);
-        converterFToK.setOnClickListener(this);
-
-        converterKToC = findViewById(R.id.buttonConverterKelvinToCelsius);
-        converterKToC.setOnClickListener(this);
-
-        converterKToF = findViewById(R.id.buttonConverterKelvinToFahrenheit);
-        converterKToF.setOnClickListener(this);
+        buttonCelsius = findViewById(R.id.buttonCelsius);
+        buttonCelsius.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        if(view == converterCToF){
-            getCelsiusToFahreheit();
-        }
-        if(view == converterCToK){
-            getCelsiusToKelvin();
-        }
-        if(view == converterFToC){
-            getFahreiheitToCelsius();
-        }
-        if(view == converterFToK){
-            getFahreiheitToKelvin();
-        }
-        if(view == converterKToC){
-            getKelvinToCelsius();
-        }
-        if(view == converterKToF){
-            getKelvinToFahreiheit();
-        }
+        getCelsiusConvertion();
     }
 
     private double getValue(){
@@ -88,52 +49,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return value;
     }
 
-    private void getCelsiusToFahreheit(){
-        double value = getValue();
-
-        value = (value * 1.8) + 32;
-
-        textView.setText(String.format("%.2f ºF", value));
-    }
-
-    private void getCelsiusToKelvin(){
-        double value = getValue();
-
-        value = value + 273.15;
-
-        textView.setText(String.format("%.2f K", value));
-    }
-
     @SuppressLint("DefaultLocale")
-    private void getFahreiheitToCelsius(){
+    private void getCelsiusConvertion(){
         double value = getValue();
 
-        value = (value  * 1.8) + 32;
+        value = (value - 32) * (0.5555555556);
 
-        textView.setText(String.format("%.2f ºC", value));
+        textView.setText(String.format("%.2f Cº", value));
     }
 
-    private void getFahreiheitToKelvin(){
-        double value = getValue();
-
-        value = ((value - 32) * 1.8) + 273.15;
-
-        textView.setText(String.format("%.2f K", value));
-    }
-
-    private void getKelvinToCelsius(){
-        double value = getValue();
-
-        value = value - 273.15;
-
-        textView.setText(String.format("%.2f ºC", value));
-    }
-
-    private void getKelvinToFahreiheit(){
-        double value = getValue();
-
-        value = ((value - 273.15)* 1.8) + 32;
-
-        textView.setText(String.format("%.2f ºF", value));
-    }
 }

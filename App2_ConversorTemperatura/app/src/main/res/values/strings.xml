@@ -1,9 +1,4 @@
 <resources>
     <string name="app_name">ConversorTemperatura</string>
-    <string name="celsius">CELSIUS</string>
-    <string name="fahrenheit">FAHRENHEIT</string>
-    <string name="kelvin">KELVIN</string>
-    <string name="celsius_para">CELSIUS PARA:</string>
-    <string name="fahrenheit_para">FAHRENHEIT PARA:</string>
-    <string name="kelvin_para">KELVIN PARA:</string>
+    <string name="converter_para_celsius">CONVERTER PARA CELSIUS</string>
 </resources>
